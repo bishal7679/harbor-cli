@@ -1,8 +1,4 @@
 project_name: harbor
-
-before:
-  hooks:
-    - go mod tidy
      
 builds:
 - main: ./cmd/harbor/main.go
