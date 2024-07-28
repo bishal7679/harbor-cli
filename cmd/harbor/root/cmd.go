@@ -96,10 +96,7 @@ harbor help
 	root.PersistentFlags().StringVar(&cfgFile, "config", utils.DefaultConfigPath, "config file (default is $HOME/.harbor/config.yaml)")
 	root.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose output")
 
-	err := viper.BindPFlag("output-format", root.PersistentFlags().Lookup("output-format"))
-	if err != nil {
-		fmt.Println(err.Error())
-	}
+	viper.BindPFlag("output-format", root.PersistentFlags().Lookup("output-format"))
 
 	root.AddCommand(
 		versionCommand(),
