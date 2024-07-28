@@ -1,0 +1,24 @@
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+  disable:
+    - godox  # Disable linter for TODO comments
+    - dupl   # Disable linter for duplicate code
+
+linters-settings:
+  errcheck:
+    # List of functions to be excluded from the errcheck linter
+    exclude-functions:
+      - fmt.Printf
+  govet:
+    # List of checks to be excluded from the govet linter
+    check-shadowing: true
+
+issues:
+  exclude-use-default: false
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gocyclo  # Disable gocyclo linter for test files
